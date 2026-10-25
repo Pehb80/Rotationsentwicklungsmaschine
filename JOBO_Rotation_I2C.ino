@@ -1,5 +1,5 @@
 // =====================================================================
-//  JOBO 1520 Rotationsentwicklung – Steuerung (Arduino Uno)
+//  Rotationsentwicklung – Steuerung (Arduino Uno)
 //  Hardware wie bisher: BTS7960, KY-040 (Drehdrück-Encoder), LCD 1602 parallel
 //
 //  Bedienung:
@@ -36,7 +36,7 @@ LiquidCrystal_I2C lcd(LCD_ADDR, 16, 2);
 //   Übersetzung i = D_TANK / D_ROLLE = 95 / 35 = 2,71  ->  Rolle (= Motor) muss 2,71x schneller drehen als der Tank.
 //   65 U/min am Tank  ->  ca. 176 U/min am Motor (200er-Motor: max. ca. 74 U/min am Tank).
 const float D_ROLLE_MM        = 35.0;   // Außen-Ø TPU-Ring auf der Antriebsscheibe
-const float D_TANK_MM         = 95.0;   // Ø JOBO 1520 an der Lauffläche
+const float D_TANK_MM         = 95.0;   // Ø1520 an der Lauffläche
 const float TANK_RPM_SOLL     = 65.0;   // Ziel bei 100 % (200er-Motor: max. ca. 74 U/min am Tank, Reserve für +10 %)
 const float MOTOR_RPM_12V     = 200;    // Leerlaufdrehzahl GA37 bei 12 V laut Angebot (0 = unbekannt)
 const int   BASE_PWM_FALLBACK = 40;     // gilt, solange MOTOR_RPM_12V = 0 ist (Wert aus altem Skript)
@@ -323,7 +323,7 @@ void setup() {
 
   lcd.init();
   lcd.backlight();
-  printLine(0, "JOBO Rotation");
+  printLine(0, "Rotation");
   printLine(1, "65 U/min  3,5s");
   delay(1200);
   updateLCD(true);
